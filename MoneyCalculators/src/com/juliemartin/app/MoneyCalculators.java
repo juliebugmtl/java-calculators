@@ -41,19 +41,43 @@ public class MoneyCalculators {
     }
 
     private void doChoiceA() {
-        
-            System.out.println("Enter amount of loan in dollars: ");
-            double pv = sc.nextDouble();
-            sc.nextLine();
-
-            System.out.println("Enter annual interest rate (ie: 0.05): ");
-            double rate = sc.nextDouble() / 12.0;
-            sc.nextLine();
-
-            System.out.println("Enter term in years: ");
-            double term = sc.nextDouble() * 12.0;
-            sc.nextLine();
-
+            
+            double pv = -1.0;
+            do {
+                System.out.print("Enter amount of loan in dollars: ");
+                if (sc.hasNext("\\d*\\.?\\d*") ) {
+                    pv = sc.nextDouble();
+                }
+                if (pv == -1.0) {
+                    System.out.println("Invalid input.");
+                }
+                sc.nextLine();
+            } while (pv == -1.0);
+            
+            double rate = -1.0;
+            do {
+                System.out.print("Enter annual interest rate (ie: 0.05): ");
+                if (sc.hasNext("\\d*\\.?\\d*") ) {
+                    rate = sc.nextDouble() / 12.0;
+                }
+                if (rate == -1.0) {
+                    System.out.println("Invalid input.");
+                }
+                sc.nextLine();
+            } while (rate == -1.0);
+            
+            double term = -1.0;
+            do {
+                System.out.print("Enter term in years: ");
+                if (sc.hasNext("\\d*\\.?\\d*") ) {
+                    term = sc.nextDouble() * 12.0;
+                }
+                if (term == -1.0) {
+                    System.out.println("Invalid input.");
+                }
+                sc.nextLine();
+            } while (term == -1.0);
+            
             double pmt = pv * (rate / (1.0 - (Math.pow((1.0 + rate), -term))));
 
             System.out.println("You need to pay " + formatter.format(pmt) + " every month.");
@@ -61,17 +85,41 @@ public class MoneyCalculators {
     }
 
     private void doChoiceB() {
-            System.out.println("Enter amount put aside each month in dollars (ie: 100): ");
-            double pmt = sc.nextDouble();
-            sc.nextLine();
-
-            System.out.println("Enter annual interest rate (ie: 0.05): ");
-            double rate = sc.nextDouble() / 12.0;
-            sc.nextLine();
-
-            System.out.println("Enter term in years: ");
-            double term = sc.nextDouble() * 12.0;
-            sc.nextLine();
+            double pmt = -1.0;
+            do {
+                System.out.print("Enter amount put aside each month in dollars: ");
+                if (sc.hasNext("\\d*\\.?\\d*") ) {
+                    pmt = sc.nextDouble();
+                }
+                if (pmt == -1.0) {
+                    System.out.println("Invalid input.");
+                }
+                sc.nextLine();
+            } while (pmt == -1.0);
+            
+            double rate = -1.0;
+            do {
+                System.out.print("Enter annual interest rate (ie: 0.05): ");
+                if (sc.hasNext("\\d*\\.?\\d*") ) {
+                    rate = sc.nextDouble() / 12.0;
+                }
+                if (rate == -1.0) {
+                    System.out.println("Invalid input.");
+                }
+                sc.nextLine();
+            } while (rate == -1.0);
+            
+            double term = -1.0;
+            do {
+                System.out.print("Enter term in years: ");
+                if (sc.hasNext("\\d*\\.?\\d*") ) {
+                    term = sc.nextDouble() * 12.0;
+                }
+                if (term == -1.0) {
+                    System.out.println("Invalid input.");
+                }
+                sc.nextLine();
+            } while (term == -1.0);
 
             double fv = pmt * ((1.0 - (Math.pow((1.0 + rate), term)))) / rate;
 
@@ -80,17 +128,41 @@ public class MoneyCalculators {
     }
     
     private void doChoiceC() {
-            System.out.println("Enter the amount you'd like to have in dollars: ");
-            double fv = sc.nextDouble();
-            sc.nextLine();
-
-            System.out.println("Enter annual interest rate (ie: 0.05): ");
-            double rate = sc.nextDouble() / 12.0;
-            sc.nextLine();
-
-            System.out.println("Enter term in years: ");
-            double term = sc.nextDouble() * 12.0;
-            sc.nextLine();
+            double fv = -1.0;
+            do {
+                System.out.print("Enter amount put aside each month in dollars: ");
+                if (sc.hasNext("\\d*\\.?\\d*") ) {
+                    fv = sc.nextDouble();
+                }
+                if (fv == -1.0) {
+                    System.out.println("Invalid input.");
+                }
+                sc.nextLine();
+            } while (fv == -1.0);
+            
+            double rate = -1.0;
+            do {
+                System.out.print("Enter annual interest rate (ie: 0.05): ");
+                if (sc.hasNext("\\d*\\.?\\d*") ) {
+                    rate = sc.nextDouble() / 12.0;
+                }
+                if (rate == -1.0) {
+                    System.out.println("Invalid input.");
+                }
+                sc.nextLine();
+            } while (rate == -1.0);
+            
+            double term = -1.0;
+            do {
+                System.out.print("Enter term in years: ");
+                if (sc.hasNext("\\d*\\.?\\d*") ) {
+                    term = sc.nextDouble() * 12.0;
+                }
+                if (term == -1.0) {
+                    System.out.println("Invalid input.");
+                }
+                sc.nextLine();
+            } while (term == -1.0);
 
             double sg = fv * (rate / (1.0 - (Math.pow((1.0 + rate), term))));
 
